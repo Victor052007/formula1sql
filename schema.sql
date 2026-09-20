@@ -84,7 +84,6 @@ CREATE TABLE results (
   fastest_lap_time   TIME,
   fastest_lap_speed  NUMERIC(6,3),
   status_id          INTEGER NOT NULL,
-  CONSTRAINT uq_results_race_driver UNIQUE (race_id, driver_id),
   CONSTRAINT fk_results_race        FOREIGN KEY (race_id)        REFERENCES races (race_id),
   CONSTRAINT fk_results_driver      FOREIGN KEY (driver_id)      REFERENCES drivers (driver_id),
   CONSTRAINT fk_results_constructor FOREIGN KEY (constructor_id) REFERENCES constructors (constructor_id),
