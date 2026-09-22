@@ -3,7 +3,8 @@
 Queries:
 [`queries/q5_grid_age.sql`](../queries/q5_grid_age.sql) (average age per season),
 [`queries/q5_grid_age_change.sql`](../queries/q5_grid_age_change.sql) (change from one season to the next),
-[`queries/q5_grid_turnover.sql`](../queries/q5_grid_turnover.sql) (which drivers left and arrived between two seasons)
+[`queries/q5_grid_turnover.sql`](../queries/q5_grid_turnover.sql) (which drivers left and arrived between two seasons),
+[`queries/q5_1966_check.sql`](../queries/q5_1966_check.sql) (why 1966 broke the +1 rule)
 
 With the sport growing so much in popularity, you might expect the average age of the grid to drop fast. But is that really the case?
 
@@ -46,14 +47,23 @@ The rule: if nobody leaves or arrives, everyone ages by one year, so the average
 
 - Only two seasons broke the rule: **1966 (+1.38)** and **1999 (+1.07)**. 2024, with +0.98, is the third biggest rise ever and the closest to the "pure" case of a grid that almost didn't change.
 - **1999:** every driver who left after 1998 was younger than the grid average of 28.4. Tuero, the youngest driver on the grid, was only 20. The ones who arrived were not young rookies: Zanardi came back from CART at 32, Badoer returned after a break, and de la Rosa debuted at 28.
-- **1966** is still unexplained. It is the next thing to check.
+- **1966** has its own section below.
 - The biggest drops were 1952 (−2.72), 2013 (−1.77), 1954 (−1.66) and 1994 (−1.30).
+
+## 1966: the biggest rise ever
+
+Why did the average age jump by 1.38 years in a single season? I ran several queries to find out.
+
+- **Huge grid rotation:** 30 drivers left after 1965 and only 9 arrived. Why would so many drivers leave at once? 18 of their 50 entries came from a single race, the South African GP, which wasn't part of the championship anymore in 1966. Many of them didn't really leave F1, their only race was taken off the calendar.
+- **But this doesn't explain the rise in age.** I first assumed the drivers who left were younger than the rest, but the data showed the opposite: they were slightly older, 31.34 against 30.89 for the ones who stayed. So their departure would have pulled the average down a bit, not up.
+- **The real explanation is the drivers who arrived.** They averaged 33.74 years, compared to 32.11 for the ones who stayed. 1966 was also the year the engine rules changed, with engine capacity doubling from 1.5 to 3 litres. With such a big change, it makes sense that teams went for experienced drivers instead of rookies, like former world champion Phil Hill.
 
 ## Limitations
 
 - The average is weighted by race entries, not by drivers, so full-time drivers count more than substitutes.
 - An average hides individuals. Verstappen debuted at 17 in 2015, but one driver out of twenty barely moves the number.
 - To compare grids I used `EXCEPT`, which only checks whether a driver raced at least once that season. A driver returning after a break, like Sutil in 2013, looks the same as a debutant.
+- The +1 rule is only exact if every driver races the same number of races in both seasons. In 1966, even the drivers who stayed got 1.22 years older on average, because the older ones made up a bigger share of the race entries than the year before.
 
 ## Full results
 

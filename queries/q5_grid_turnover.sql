@@ -4,9 +4,9 @@
 select  distinct d.forename,d.surname from results r
 JOIN drivers d ON d.driver_id = r.driver_id
 JOIN races ra  ON ra.race_id  = r.race_id
-where ra.year=1999
+where ra.year=1965
 except
 select  distinct d.forename,d.surname from results r
 JOIN drivers d ON d.driver_id = r.driver_id
 JOIN races ra  ON ra.race_id  = r.race_id
-where ra.year=1998;
+where ra.year=1966;
