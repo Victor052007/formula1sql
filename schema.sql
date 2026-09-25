@@ -89,6 +89,7 @@ CREATE TABLE results (
   CONSTRAINT fk_results_constructor FOREIGN KEY (constructor_id) REFERENCES constructors (constructor_id),
   CONSTRAINT fk_results_status      FOREIGN KEY (status_id)      REFERENCES status (status_id)
 );
+CREATE INDEX idx_results_race_constructor ON results (race_id, constructor_id);
 
 CREATE TABLE sprint_results (
   sprint_result_id  INTEGER PRIMARY KEY,
