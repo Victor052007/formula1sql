@@ -2,7 +2,7 @@
 
 Queries:
 [`queries/q5_grid_age.sql`](../queries/q5_grid_age.sql) (average age per season),
-[`queries/q5_grid_age_change.sql`](../queries/q5_grid_age_change.sql) (change from one season to the next),
+[`practice/lag_practice.sql`](../practice/lag_practice.sql) (change from one season to the next),
 [`queries/q5_grid_turnover.sql`](../queries/q5_grid_turnover.sql) (which drivers left and arrived between two seasons),
 [`queries/q5_1966_check.sql`](../queries/q5_1966_check.sql) (why 1966 broke the +1 rule)
 
